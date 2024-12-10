@@ -9,4 +9,12 @@
       <li role="menuitem" onclick="showSection('profile')">Profile</li>
     </ul>
   </nav>
+
+  <button class="toggle-btn" @click="toggleSidebar" aria-label="Toggle sidebar menu">☰</button>
 </template>
+
+<script setup>
+function toggleSidebar() {
+  console.log('toggle clicked')
+}
+</script>

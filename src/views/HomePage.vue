@@ -2,8 +2,13 @@
   <section id="home" class="section active" aria-labelledby="home-heading">
     <h1 id="home-heading">Welcome to the Home Page</h1>
     <div class="search-container">
-      <input type="text" id="search-bar" placeholder="Search for products to compare..." />
-      <button onclick="searchProduct()">Search</button>
+      <input
+        v-model="counterStore.searchItem"
+        type="text"
+        id="search-bar"
+        placeholder="Search for products to compare..."
+      />
+      <button @click="searchProduct">Search</button>
     </div>
     <h2>Top Searches This Week</h2>
     <div class="top-searches">
@@ -58,3 +63,14 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { useCounterStore } from '@/stores/counter'
+
+const counterStore = useCounterStore()
+
+function searchProduct() {
+  console.log(counterStore.searchItem)
+  counterStore.foundItems()
+}
+</script>
